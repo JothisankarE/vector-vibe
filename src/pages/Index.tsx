@@ -1,4 +1,4 @@
-import { Brain, Network, Zap, Users, Target, Cpu, Sparkles, Image as ImageIcon, Clock, Trophy } from "lucide-react";
+import { Brain, Network, Zap, Users, Target, Cpu, Sparkles, Image as ImageIcon, Clock, Trophy, ArrowRight, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import heroImage from "@/assets/hero-tech.jpg";
@@ -10,24 +10,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-primary/20">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <Brain className="w-8 h-8 text-primary animate-pulse-glow" />
-            <span className="text-xl font-bold gradient-text">VECTOR VIBE</span>
-          </div>
-          <div className="flex gap-6">
-            <button onClick={() => scrollToSection("guidelines")} className="text-sm hover:text-primary transition-colors">Guidelines</button>
-            <button onClick={() => scrollToSection("round1")} className="text-sm hover:text-primary transition-colors">Round 1</button>
-            <button onClick={() => scrollToSection("round2")} className="text-sm hover:text-primary transition-colors">Round 2</button>
-            <button onClick={() => scrollToSection("final")} className="text-sm hover:text-primary transition-colors">Final</button>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-30">
           <img src={heroImage} alt="Tech Background" className="w-full h-full object-cover" />
         </div>
@@ -65,15 +49,16 @@ const Index = () => {
           </Button>
         </div>
         
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex items-start justify-center p-2">
-            <div className="w-1.5 h-3 bg-primary rounded-full animate-pulse-glow"></div>
-          </div>
-        </div>
+        <button 
+          onClick={() => scrollToSection("guidelines")}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 text-primary hover:text-primary/80 transition-colors animate-bounce"
+        >
+          <ArrowRight className="w-8 h-8" />
+        </button>
       </section>
 
       {/* Guidelines Section */}
-      <section id="guidelines" className="min-h-screen flex items-center justify-center py-20 px-6">
+      <section id="guidelines" className="relative min-h-screen flex items-center justify-center py-20 px-6">
         <div className="container mx-auto max-w-4xl animate-fade-in">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-3 mb-4">
@@ -91,10 +76,25 @@ const Index = () => {
             </div>
           </Card>
         </div>
+        
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-8">
+          <button 
+            onClick={() => scrollToSection("hero")}
+            className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+          >
+            <ArrowLeft className="w-8 h-8" />
+          </button>
+          <button 
+            onClick={() => scrollToSection("round1")}
+            className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+          >
+            <ArrowRight className="w-8 h-8" />
+          </button>
+        </div>
       </section>
 
       {/* Round 1 Section */}
-      <section id="round1" className="min-h-screen flex items-center justify-center py-20 px-6 bg-gradient-to-b from-background to-muted/20">
+      <section id="round1" className="relative min-h-screen flex items-center justify-center py-20 px-6 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto max-w-6xl animate-fade-in">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-3 mb-4">
@@ -166,10 +166,25 @@ const Index = () => {
             </Card>
           </div>
         </div>
+        
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-8">
+          <button 
+            onClick={() => scrollToSection("guidelines")}
+            className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+          >
+            <ArrowLeft className="w-8 h-8" />
+          </button>
+          <button 
+            onClick={() => scrollToSection("round2")}
+            className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+          >
+            <ArrowRight className="w-8 h-8" />
+          </button>
+        </div>
       </section>
 
       {/* Round 2 Section */}
-      <section id="round2" className="min-h-screen flex items-center justify-center py-20 px-6">
+      <section id="round2" className="relative min-h-screen flex items-center justify-center py-20 px-6">
         <div className="container mx-auto max-w-6xl animate-fade-in">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-3 mb-4">
@@ -254,10 +269,25 @@ const Index = () => {
             </Card>
           </div>
         </div>
+        
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-8">
+          <button 
+            onClick={() => scrollToSection("round1")}
+            className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+          >
+            <ArrowLeft className="w-8 h-8" />
+          </button>
+          <button 
+            onClick={() => scrollToSection("final")}
+            className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+          >
+            <ArrowRight className="w-8 h-8" />
+          </button>
+        </div>
       </section>
 
       {/* Final Round Section */}
-      <section id="final" className="min-h-screen flex items-center justify-center py-20 px-6 bg-gradient-to-b from-background to-muted/20">
+      <section id="final" className="relative min-h-screen flex items-center justify-center py-20 px-6 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto max-w-6xl animate-fade-in">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-3 mb-4">
@@ -325,6 +355,15 @@ const Index = () => {
               <Sparkles className="w-8 h-8 text-accent animate-pulse-glow" />
             </div>
           </div>
+        </div>
+        
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+          <button 
+            onClick={() => scrollToSection("round2")}
+            className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+          >
+            <ArrowLeft className="w-8 h-8" />
+          </button>
         </div>
       </section>
 
